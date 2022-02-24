@@ -1,7 +1,10 @@
+require('dotenv').config({  
+	path: process.env.NODE_ENV.trim() === "dev" ? ".env.envDevelopment" : ".env"
+  })
+
 const express = require('express');
 const app = express();
 const port = 3000
-
 
 app.use(express.json());
 app.use('/', require('./route/index'));
