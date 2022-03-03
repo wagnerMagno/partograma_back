@@ -4,7 +4,6 @@ require('dotenv').config({
 
 const express = require('express');
 const app = express();
-const port = 3000
 
 app.use(express.json());
 app.use('/', require('./route/index'));
@@ -19,7 +18,7 @@ app.use(function (error, req, res, next) {
 });
 
 
-app.listen(port || 5000, function() {
-	console.log(`App inicializado `, port)
+app.listen( process.env.PORT || 3000, function() {
+	console.log(`App inicializado `, process.env.PORT || 3000)
 });
 
