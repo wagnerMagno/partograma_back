@@ -4,10 +4,20 @@ require('dotenv').config({
 
 const express = require('express');
 const app = express();
+const userService = require('./service/userService');
+
 
 app.use(express.json());
 // app.use('/', require('./route/index'));
-app.use('/', require('./route/userRoute'));
+app.get('/',(req,res) => {res.send('it is Working!')})  
+app.get('/user', async function (req, res, next) {
+	try {
+		const users = await userService.getUsers();
+		res.json(users);
+	} catch (e) {
+		next(e);
+	}
+});
 
 app.use(function (error, req, res, next) {
 	if (error.message === 'Email ou senha não estão corretos!') {
