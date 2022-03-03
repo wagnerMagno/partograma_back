@@ -13,7 +13,9 @@ if(process.env.NODE_ENV.trim() === "dev"){
 	
 }else{
 	db = pgp({
-		connectionString :  "postgres://hjugfhemgjfcyc:2d91de46491ad5432d3db9b678ceb8b62226f2b4c804a5098dd3644b8dbaf218@ec2-34-230-110-100.compute-1.amazonaws.com:5432/dcr8gjir0jie4f"
+		connectionString :  process.env.DATABASE_URL + "?sslmode=require",
+		ssl: { rejectUnauthorized: true, requestCert : true }
+
 	});
 }
 

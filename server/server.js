@@ -7,6 +7,7 @@ const app = express();
 const userService = require('./service/userService');
 const bedService = require('./service/bedService');
 
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 app.use(express.json());
 // app.use('/', require('./route/index'));
