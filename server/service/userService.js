@@ -5,9 +5,16 @@ exports.getUsers = function () {
 };
 
 exports.userLogin = async function (user) {
-	const userLogin = await usersData.userLogin(user);
-	if(userLogin){
-		return userLogin;
+	try {
+		
+		const userLogin = await usersData.userLogin(user);
+		if(userLogin){
+			console.log(userLogin);
+			return userLogin;
+		}
+	} catch (error) {
+		
+		throw new Error(error);
 	}
 	throw new Error('Email ou senha não estão corretos!');
 };
@@ -23,10 +30,15 @@ exports.userLogin = async function (user) {
 
 exports.userRegister = async function (user) {
 	try {
+		console.log("user ", user);
 		await usersData.userRegister(user);
 	} catch (error) {
 		if(error.message.includes("users_email_key")){
+			console.log("entou 1");
 			throw new Error('Email já cadastrado'); 
+		}else{
+			console.log("entou 2");
+			throw new Error(error); 
 		}
 	}
 };

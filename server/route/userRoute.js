@@ -11,9 +11,10 @@ router.get('/user', async function (req, res, next) {
 	}
 });
 
-router.get('/user/login', async function (req, res, next) {
+router.post('/user/login', async function (req, res, next) {
 	try {
 		const user = req.body;
+		console.log("entrou wag ");
 		const userLogin = await userService.userLogin(user);
 		res.json(userLogin);
 	} catch (e) {

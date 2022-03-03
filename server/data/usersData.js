@@ -5,6 +5,7 @@ exports.getUser = function () {
 };
 
 exports.userLogin = function (user) {
+	console.log(user);
 	return database.oneOrNone('select * from users where email = $1 and password = $2', [user.email, user.password]);
 };
 
