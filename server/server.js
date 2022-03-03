@@ -1,5 +1,5 @@
 require('dotenv').config({
-	path: process.env.NODE_ENV.trim() === "dev" ? ".env.envDevelopment" : ".env"
+	path:  ".env"
 })
 
 const express = require('express');
