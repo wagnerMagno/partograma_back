@@ -12,7 +12,7 @@ exports.getById = function (id) {
 };
 
 
-exports.udate = function (bed) {
+exports.updateBed = function (bed) {
 	return database.oneOrNone(`UPDATE bed
 	SET amount_baby=$1, bcf1=$2, bcf2=$3, bcf3=$4, du=$5, 
 	afu=$6, apag_cervical=$7, presentation1=$8, presentation2=$9, presentation3=$10, 

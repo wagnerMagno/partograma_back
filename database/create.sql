@@ -12,10 +12,9 @@ create table users (
 	name varchar(100) NOT NULL,
 	password VARCHAR ( 50 ) NOT NULL,
 	email VARCHAR ( 255 ) UNIQUE NOT NULL,
-	dateBirth TIMESTAMP,
+	date_birth TIMESTAMP,
 	profession varchar(50), 
-	city varchar(100),
-	typeUser varchar(50)
+	city varchar(100)
 );	
 
 create table bed (

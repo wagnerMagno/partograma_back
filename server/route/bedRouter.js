@@ -21,10 +21,10 @@ router.post('/bed', async function (req, res, next) {
 	}
 });
 
-router.put('/udate', async function (req, res, next) {
+router.put('/bed', async function (req, res, next) {
 	try {
 		const bed = req.body;
-		const bedCriated = await bedService.udate(bed);
+		const bedCriated = await bedService.updateBed(bed);
 		res.json(bedCriated);
 	} catch (e) {
 		next(e);

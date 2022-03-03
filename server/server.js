@@ -60,10 +60,10 @@ app.post('/bed', async function (req, res, next) {
 	}
 });
 
-app.put('/udate', async function (req, res, next) {
+app.put('/updateBed', async function (req, res, next) {
 	try {
 		const bed = req.body;
-		const bedCriated = await bedService.udate(bed);
+		const bedCriated = await bedService.updateBed(bed);
 		res.json(bedCriated);
 	} catch (e) {
 		next(e);

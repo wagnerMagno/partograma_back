@@ -21,9 +21,9 @@ exports.getById = async function (id) {
 	}
 };
 
-exports.udate = async function (bed) {
+exports.updateBed = async function (bed) {
 	try {
-		return await bedData.udate(bed);
+		return await bedData.updateBed(bed);
 	} catch (error) {
 		throw new Error(error);
 	}
