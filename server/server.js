@@ -19,7 +19,7 @@ app.use(function (error, req, res, next) {
 });
 
 
-app.listen(port, function() {
+app.listen(port || 5000, function() {
 	console.log(`App inicializado `, port)
 });
 
