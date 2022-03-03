@@ -5,6 +5,7 @@ require('dotenv').config({
 const express = require('express');
 const app = express();
 const userService = require('./service/userService');
+const bedService = require('./service/bedService');
 
 
 app.use(express.json());
@@ -38,6 +39,55 @@ app.post('/user', async function (req, res, next) {
 		next(e);
 	}
 });
+
+app.get('/bed/:id', async function (req, res, next) {
+	try {
+		const bed = await bedService.getById(req.params.id);
+		res.json(bed);
+	} catch (e) {
+		next(e);
+	}
+});
+
+app.post('/bed', async function (req, res, next) {
+	try {
+		const bed = req.body;
+		const bedCriated = await bedService.createBed(bed);
+		res.json(bedCriated);
+	} catch (e) {
+		next(e);
+	}
+});
+
+app.put('/udate', async function (req, res, next) {
+	try {
+		const bed = req.body;
+		const bedCriated = await bedService.udate(bed);
+		res.json(bedCriated);
+	} catch (e) {
+		next(e);
+	}
+});
+
+app.post('/bed/partograma', async function (req, res, next) {
+	try {
+		const obj = req.body;
+		const objCriated = await bedService.insertPartograma(obj);
+		res.json(objCriated);
+	} catch (e) {
+		next(e);
+	}
+});
+
+app.get('/bed/partograma/:idBed', async function (req, res, next) {
+	try {
+		const list = await bedService.getPartogramaByIdBed(req.params.idBed);
+		res.json(list);
+	} catch (e) {
+		next(e);
+	}
+});
+
 
 app.use(function (error, req, res, next) {
 	if (error.message === 'Email ou senha não estão corretos!') {
