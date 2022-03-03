@@ -18,6 +18,26 @@ app.get('/user', async function (req, res, next) {
 		next(e);
 	}
 });
+app.post('/user/login', async function (req, res, next) {
+	try {
+		const user = req.body;
+		console.log("entrou wag ");
+		const userLogin = await userService.userLogin(user);
+		res.json(userLogin);
+	} catch (e) {
+		next(e);
+	}
+});
+
+app.post('/user', async function (req, res, next) {
+	try {
+		const user = req.body;
+		await userService.userRegister(user);
+		res.json({message : "Usuário cadastrado com sucesso"});
+	} catch (e) {
+		next(e);
+	}
+});
 
 app.use(function (error, req, res, next) {
 	if (error.message === 'Email ou senha não estão corretos!') {
