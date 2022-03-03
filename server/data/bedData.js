@@ -8,7 +8,7 @@ exports.createBed = function (bed) {
 };
 
 exports.getById = function (id) {
-	return database.query(`SELECT * FROM bed INNER JOIN users ON (bed.id_user = users.id)  where bed.id_user = $1`, [id]);
+	return database.query(`SELECT * FROM bed INNER JOIN users ON (bed.id_user = users.id)  where bed.id_user = $1 and bed.is_active = true`, [id]);
 };
 
 
@@ -19,6 +19,13 @@ exports.updateBed = function (bed) {
 	pa=$11, hgt=$12, complaint=$13
 	WHERE id = bed.id`
 		, [bed.amount_baby, bed.bcf1, bed.bcf2, bed.bcf3, bed.du, bed.afu, bed.apag_cervical, bed.presentation1, bed.presentation2, bed.presentation3, bed.pa, bed.hgt, bed.complaint]);
+};
+
+exports.close = function (bed) {
+	return database.oneOrNone(`UPDATE bed
+	SET is_active=false, type_parto=$1, sex_baby=$2, indication=$3
+	WHERE id = bed.id`
+		, [bed.type_parto, bed.sex_baby, bed.indication]);
 };
 
 exports.insertPartograma = function (obj) {

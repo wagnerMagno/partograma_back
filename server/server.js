@@ -70,6 +70,16 @@ app.put('/bed', async function (req, res, next) {
 	}
 });
 
+app.put('/bed/close', async function (req, res, next) {
+	try {
+		const bed = req.body;
+		const bedCriated = await bedService.close(bed);
+		res.json(bedCriated);
+	} catch (e) {
+		next(e);
+	}
+});
+
 app.post('/bed/partograma', async function (req, res, next) {
 	try {
 		const obj = req.body;

@@ -40,6 +40,9 @@ create table bed (
 	hgt varchar(20),
 	complaint varchar(200),
 	is_active boolean default true,
+	type_parto varchar(20),
+	sex_baby varchar(20),
+	indication varchar(50),
 	CONSTRAINT fk_id_user
       FOREIGN KEY(id_user) 
 	  REFERENCES users(id)
@@ -54,7 +57,7 @@ create table partogram (
 	start_tay varchar(15),
 	real_time varchar(15),
 	registration_time varchar(5),
-	handbag varchar(1),
+	handbag varchar(15),
 	LA varchar(10),
 	oxytocin varchar(10),
 	CONSTRAINT fk_id_bed

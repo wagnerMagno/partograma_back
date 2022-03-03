@@ -29,6 +29,14 @@ exports.updateBed = async function (bed) {
 	}
 };
 
+exports.close = async function (bed) {
+	try {
+		return await bedData.close(bed);
+	} catch (error) {
+		throw new Error(error);
+	}
+};
+
 exports.insertPartograma = async function (obj) {
 	try {
 		return await bedData.insertPartograma(obj);
