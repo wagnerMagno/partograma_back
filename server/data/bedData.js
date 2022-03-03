@@ -8,8 +8,9 @@ exports.createBed = function (bed) {
 };
 
 exports.getById = function (id) {
-	return database.oneOrNone(`SELECT * FROM bed INNER JOIN users ON (bed.id_user = users.id)  where bed.id_user = $1`, [id]);
+	return database.query(`SELECT * FROM bed INNER JOIN users ON (bed.id_user = users.id)  where bed.id_user = $1`, [id]);
 };
+
 
 exports.udate = function (bed) {
 	return database.oneOrNone(`UPDATE bed
