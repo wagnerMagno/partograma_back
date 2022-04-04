@@ -17,7 +17,7 @@ exports.updateBed = function (bed) {
 	SET amount_baby=$1, bcf1=$2, bcf2=$3, bcf3=$4, 
 	afu=$5, apag_cervical=$6, presentation1=$7, presentation2=$8, presentation3=$9, 
 	pa=$10, hgt=$11, complaint=$12
-	WHERE id = $14`
+	WHERE id = $13`
 		, [bed.amount_baby, bed.bcf1, bed.bcf2, bed.bcf3, bed.afu, bed.apag_cervical, bed.presentation1, bed.presentation2, bed.presentation3, bed.pa, bed.hgt, bed.complaint, bed.id]);
 };
 
