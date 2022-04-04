@@ -2,9 +2,9 @@ const database = require('../infra/database');
 
 
 exports.createBed = function (bed) {
-	return database.oneOrNone(`INSERT INTO public.bed( id_user, name_pacient, number, age, dum, medication, comorbidity)
-	   VALUES ( $1, $2, $3, $4, $5, $6, $7)`
-		, [bed.id_user, bed.name_pacient, bed.number, bed.age, bed.dum, bed.medication, bed.comorbidity]);
+	return database.oneOrNone(`INSERT INTO public.bed( id_user, name_pacient, number, age, dum, medication, comorbidity, gesta, para, aborto)
+	   VALUES ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`
+		, [bed.id_user, bed.name_pacient, bed.number, bed.age, bed.dum, bed.medication, bed.comorbidity, bed.gesta, bed.para, bed.aborto]);
 };
 
 exports.getById = function (id) {
