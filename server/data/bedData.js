@@ -8,11 +8,12 @@ exports.createBed = function (bed) {
 };
 
 exports.getById = function (id) {
-	return database.query(`SELECT * FROM bed INNER JOIN users ON (bed.id_user = users.id)  where bed.id_user = $1 and bed.is_active = $2`, [id, true]);
+	return database.query(`SELECT * FROM bed   where bed.id_user = $1 and bed.is_active = $2`, [id, true]);
 };
 
 
 exports.updateBed = function (bed) {
+	console.log("--------------- bed ", bed);
 	return database.oneOrNone(`UPDATE bed
 	SET amount_baby=$1, bcf1=$2, bcf2=$3, bcf3=$4, 
 	afu=$5, apag_cervical=$6, presentation1=$7, presentation2=$8, presentation3=$9, 
