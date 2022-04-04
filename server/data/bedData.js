@@ -14,11 +14,11 @@ exports.getById = function (id) {
 
 exports.updateBed = function (bed) {
 	return database.oneOrNone(`UPDATE bed
-	SET amount_baby=$1, bcf1=$2, bcf2=$3, bcf3=$4, du=$5, 
-	afu=$6, apag_cervical=$7, presentation1=$8, presentation2=$9, presentation3=$10, 
-	pa=$11, hgt=$12, complaint=$13
+	SET amount_baby=$1, bcf1=$2, bcf2=$3, bcf3=$4, 
+	afu=$5, apag_cervical=$6, presentation1=$7, presentation2=$8, presentation3=$9, 
+	pa=$10, hgt=$11, complaint=$12
 	WHERE id = $14`
-		, [bed.amount_baby, bed.bcf1, bed.bcf2, bed.bcf3, bed.du, bed.afu, bed.apag_cervical, bed.presentation1, bed.presentation2, bed.presentation3, bed.pa, bed.hgt, bed.complaint, bed.id]);
+		, [bed.amount_baby, bed.bcf1, bed.bcf2, bed.bcf3, bed.afu, bed.apag_cervical, bed.presentation1, bed.presentation2, bed.presentation3, bed.pa, bed.hgt, bed.complaint, bed.id]);
 };
 
 exports.close = function (bed) {
