@@ -38,5 +38,5 @@ exports.insertPartograma = function (obj) {
 
 exports.getPartogramaByIdBed = function (id) {
 	return database.query(` SELECT * FROM partogram INNER JOIN bed ON (bed.id = partogram.id_bed) 
-	where bed.id_user = $1`, [id])
+	where bed.id = $1`, [id])
 }
