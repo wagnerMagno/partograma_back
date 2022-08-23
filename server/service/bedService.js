@@ -5,6 +5,7 @@ const bedData = require('../data/bedData');
 exports.createBed = async function (bedyObj) {
 	try {
 		const bed = await bedData.createBed(bedyObj);
+		
 		if (bed) {
 			return bed;
 		}
