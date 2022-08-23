@@ -31,7 +31,7 @@ exports.close = function (bed) {
 
 exports.insertPartograma = function (obj) {
 	return database.oneOrNone(`INSERT INTO public.partogram(
-		id_bed, dilation, contraction, fcf, start_tay, real_time, registration_time, handbag, la, oxytocin, qtd_conctraction)
+		id_bed, dilation, contraction, fcf, start_tay, real_time, registration_time, handbag, la, oxytocin, qtd_conctraction, colo)
 		VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`,
 		[obj.id_bed, obj.dilation, obj.contraction, obj.fcf, obj.start_tay, obj.real_time, obj.registration_time, obj.handbag, obj.la, obj.oxytocin, obj.qtdContraction, obj.colo])
 }
